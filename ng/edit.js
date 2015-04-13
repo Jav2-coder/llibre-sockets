@@ -1,9 +1,14 @@
 angular.module('app')
     .controller('EditBooks', function($scope, $location, LlibresService) {
-        $scope.editarTitol = LlibresService.llibreEditar.titol;
-        $scope.editarIsbn = LlibresService.llibreEditar.isbn;
+        if (($scope.editarTitol != undefined) & ($scope.editarIsbn != undefined)) {
 
-        $scope.llibre_Editar = LlibresService.llibreEditar;
+
+            $scope.editarTitol = LlibresService.llibreEditar.titol;
+            $scope.editarIsbn = LlibresService.llibreEditar.isbn;
+
+            $scope.llibre_Editar = LlibresService.llibreEditar;
+
+        };
 
         //Cancelem l'acció PUT
         $scope.cancelarEdicio = function(llibre) {
@@ -20,13 +25,12 @@ angular.module('app')
         $scope.actualitzarLlibre = function(llibre) {
 
 
-            if (($scope.editarTitol != undefined) & ($scope.editarIsbn != undefined)) {
+            LlibresService.update($scope.llibre_Editar.isbn, {
+                "titol": $scope.editarTitol,
+                "isbn": $scope.editarIsbn
+            })
 
-                LlibresService.update($scope.llibre_Editar.isbn, {
-                    "titol": $scope.editarTitol,
-                    "isbn": $scope.editarIsbn
-                })
-            }
+
             $location.path('/');
 
         };
