@@ -1,6 +1,6 @@
 angular.module('app')
     .controller('EditBooks', function($scope, $location, LlibresService) {
-        if (($scope.editarTitol != undefined) & ($scope.editarIsbn != undefined)) {
+        if ($scope.editarTitol) {
 
 
             $scope.editarTitol = LlibresService.llibreEditar.titol;
@@ -8,7 +8,7 @@ angular.module('app')
 
             $scope.llibre_Editar = LlibresService.llibreEditar;
 
-        };
+        }
 
         //Cancelem l'acció PUT
         $scope.cancelarEdicio = function(llibre) {
