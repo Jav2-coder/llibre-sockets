@@ -1,0 +1,17 @@
+<div class="container">
+    <h1>Pagina per editar llibres</h1>
+    <form>
+        <fieldset>
+            <legend>Editar Llibre</legend>
+            <div class="form-group col-xs-5 col-sm-5 col-md-5">
+                Titol
+                <input ng-model="editarTitol" class="form-control" placeholder="Titol">
+                <br> Isbn
+                <input ng-model="editarIsbn" class="form-control" placeholder="Isbn">
+                <br>
+                <button class="btn btn-success btn-lg" ng-click="actualitzarLlibre()">Editar Llibre</button>
+                <button class="btn btn-primary btn-lg" ng-click="cancelarEdicio()">Cancelar</button>
+            </div>
+        </fieldset>
+    </form>
+</div>

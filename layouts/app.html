@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tasca ng</title>
+    <link rel="stylesheet" href="css/bootstrap.slate.min.css" type="text/css" />
+</head>
+<body ng-app='app'>
+    <div class='container'>
+        <div class="navbar navbar-default">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand">Tasca</a>
+            </div>
+            <div class="navbar-collapse collapse navbar-responsive-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/#/">Veure Llibres</a>
+                    </li>
+                    <li><a href="/#/editarLlibre">Editar Llibre</a>
+                    </li>
+                    <li><a href="/#/nouLlibre">Afegir Llibre</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div ng-view></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.11/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.11/angular-route.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

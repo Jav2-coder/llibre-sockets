@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ca">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" type="text/css" />
+</head>
+
+<body ng-app='app'>
+    <div class="container" ng-controller="LlibresController">
+        <div class="jumbotron text-center">
+            <h1>Tasca GULP - Llibres</h1>
+        </div>
+        <ul class="list-group col-xs-8 col-sm-8 col-md-8">
+            <li class="list-group-item" ng-repeat="llibre in llibres | orderBy: '-date'">
+                <div class="row">
+                    <div class="col-xs-4 col-sm-4 col-md-4"><img src="http://s27.postimg.org/qk49yykb3/Selecci_034.png" class="img-circle">
+                    </div>
+                    <div class="col-xs-8 col-sm-8 col-md-8">
+                        <h4><strong>{{llibre.titol}}</strong></h4>
+                        <p>Isbn: {{llibre.isbn}}</p>
+                        <div>
+                            <button class="btn btn-danger btn-lg list-group col-xs-3 col-sm-3 col-md-3" ng-click="borrarLlibre(llibre)">Esborrar</button>
+                            <button class="btn btn-info btn-lg list-group col-xs-3 col-sm-3 col-md-3" ng-click="editarLlibre(llibre)">Editar</button>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <div class="col-xs-4 col-sm-4 col-md-4">
+            <form role="form">
+                <fieldset>
+                    <legend>Llibre Nou</legend>
+                    <div class="form-group">
+                        <div class="input-group">
+                            Titol
+                            <input ng-model="llibreTitol" class="form-control" />
+                            <br> Isbn
+                            <input ng-model="llibreIsbn" class="form-control" />
+                            <br>
+                            <button class="btn btn-success btn-lg" ng-click="afegirLlibre()">Afegir Llibre</button>
+                            <button class="btn btn-lg" ng-click="cancelarLlibre()">Cancelar</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4">
+            <form role="form">
+                <fieldset>
+                    <legend>Editar Llibre</legend>
+                    <div class="form-group">
+                        <div class="input-group">
+                            Titol
+                            <input ng-model="editarTitol" class="form-control" />
+                            <br> Isbn
+                            <input ng-model="editarIsbn" class="form-control" />
+                            <br>
+                            <button class="btn btn-success btn-lg" ng-click="actualitzarLlibre()">Editar Llibre</button>
+                            <button class="btn btn-lg" ng-click="cancelarEdicio()">Cancelar</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.11/angular.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.9/angular-resource.js"></script> -->
+    <script src="app.js"></script>
+</body>
+
+</html>
