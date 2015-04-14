@@ -14,6 +14,8 @@ angular.module('app')
         //Cancelem l'acció PUT
         $scope.cancelarEdicio = function(llibre) {
 
+            LlibresService.llibreEditar = null;
+            
             $location.path('/');
         };
 
