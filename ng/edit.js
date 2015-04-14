@@ -1,24 +1,20 @@
 angular.module('app')
     .controller('EditBooks', function($scope, $location, LlibresService) {
-        if ($scope.editarTitol) {
-
+       
+            if (LlibresService.llibreEditar === null) {
+                $location.path('/');
+            }
 
             $scope.editarTitol = LlibresService.llibreEditar.titol;
             $scope.editarIsbn = LlibresService.llibreEditar.isbn;
 
             $scope.llibre_Editar = LlibresService.llibreEditar;
 
-        }
 
         //Cancelem l'acció PUT
         $scope.cancelarEdicio = function(llibre) {
 
-            if (($scope.editarTitol != undefined) & ($scope.editarIsbn != undefined)) {
-
-                $scope.editarIsbn = null;
-                $scope.editarTitol = null;
-
-            }
+            $location.path('/');
         };
 
         // Traspassem informació a les variables del HTML

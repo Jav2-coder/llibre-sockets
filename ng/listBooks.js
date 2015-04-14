@@ -24,12 +24,5 @@ angular.module('app')
         
         $location.path('/editarLlibre');
         
-
-        /*$scope.editarTitol = llibre.titol;
-        $scope.editarIsbn = llibre.isbn;
-
-        $scope.llibre_Editar = llibre;*/
-
-
     };
 });

@@ -23,11 +23,6 @@ angular.module('app')
     //Cancelem l'acció POST
     $scope.cancelarLlibre = function(llibre) {
 
-        if (($scope.llibreTitol != undefined) & ($scope.llibreIsbn != undefined)) {
-            
-            $scope.llibreIsbn = null;
-            $scope.llibreTitol = null; 
-            
-        }
+       $location.path('/');
     };
 });
