@@ -3,13 +3,13 @@ angular.module('app')
        
             if (LlibresService.llibreEditar === null) {
                 $location.path('/');
-            }
+            } else {
 
             $scope.editarTitol = LlibresService.llibreEditar.titol;
             $scope.editarIsbn = LlibresService.llibreEditar.isbn;
 
             $scope.llibre_Editar = LlibresService.llibreEditar;
-
+}
 
         //Cancelem l'acció PUT
         $scope.cancelarEdicio = function(llibre) {
