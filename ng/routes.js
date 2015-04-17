@@ -8,20 +8,31 @@ angular.module('app')
             })
             .when("/editarLlibre", {
                 controller: 'EditBooks',
-                templateUrl: 'edit.html'
-                
+                templateUrl: 'edit.html',
+                autoritzat: true
+
             })
             .when("/nouLlibre", {
                 controller: 'NewBook',
-                templateUrl: 'new.html'
-                
+                templateUrl: 'new.html',
+                autoritzat: true
+            })
+            .when("/iniciarSessio", {
+                controller: 'LoginSession',
+                templateUrl: 'login.html',
+                autoritzat: false
+            })
+            .when("/usuariNou", {
+                controller: 'NewUser',
+                templateUrl: 'register.html',
+                autoritzat: false
             })
             .otherwise({
                 redirectTo: '/'
             });
-            
-            $locationProvider.html5Mode({
-                          enabled: true,
-                          requireBase: false
-                        });
+
+        $locationProvider.html5Mode({
+            enabled: true,
+            requireBase: false
+        });
     });

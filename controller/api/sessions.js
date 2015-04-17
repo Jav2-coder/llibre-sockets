@@ -8,9 +8,12 @@ var secretKey = 'A0hu77QQhHhj3166pp078fqapAAAzx';
 router.post('/', function(req,res, next) {
     //Si la contrasenya enviada per l'usuari és correcte
     //enviem un toke d'autenticació
+    console.log(req.body);
     User.findOne({username: req.body.username})
-            .select('username password')
+            .select('username')
+            .select('password')
             .exec(function(err,user) {
+                console.log(user);
                 if (err) return next(err);
                 if (!user) return res.status(401).json({"missatge": "auth problem"});
                 bcrypt.compare(req.body.password, user.password, function (err, valid) {

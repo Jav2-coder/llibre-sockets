@@ -1,0 +1,19 @@
+<div class="container">
+    <h1>Registrar Usuari</h1>
+    <form>
+        <fieldset>
+            <legend>Registre</legend>
+            <div class="form-group col-xs-5 col-sm-5 col-md-5">
+                Usuari
+                <input ng-model="regUser" class="form-control" placeholder="Usuari">
+                <br> Contrasenya
+                <input ng-model="regPasswd" class="form-control" placeholder="Contrasenya">
+                <br> Repetir Contrasenya
+                <input ng-model="confPasswd" class="form-control" placeholder="Contrasenya">
+                <br>
+                <button class="btn btn-success btn-lg" ng-click="nouUsuari()">Registrar</button>
+                <button class="btn btn-primary btn-lg" ng-click="cancelarUsuari()">Cancelar</button>
+            </div>
+        </fieldset>
+    </form>
+</div>
