@@ -1,0 +1,17 @@
+<div class="container">
+    <h1>Afegir Autor</h1>
+    <form>
+        <fieldset>
+            <legend></legend>
+            <div class="form-group col-xs-5 col-sm-5 col-md-5">
+                Nom
+                <input ng-model="autorNom" class="form-control" placeholder="Nom"/>
+                <br> Autor/s
+                <input ng-model="autorCognom" class="form-control" placeholder="Cognoms"/>
+                <br>
+                <button class="btn btn-success btn-lg" ng-click="afegirAutor()">Afegir Autor</button>
+                <button class="btn btn-primary btn-lg" ng-click="cancelarAutor()">Cancelar</button>
+            </div>
+        </fieldset>
+    </form>
+</div>

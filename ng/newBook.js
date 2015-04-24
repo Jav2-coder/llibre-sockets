@@ -1,5 +1,10 @@
 angular.module('app')
-.controller('NewBook', function($scope, $location, LlibresService) {
+.controller('NewBook', function($scope, $location, LlibresService, AutorService) {
+
+    AutorService.fetch()
+        .success(function(autors) {
+            $scope.autors = autors;
+        });
     
     //Desenvolupem la funcio afegirLlibre
     $scope.afegirLlibre = function() {
@@ -8,11 +13,13 @@ angular.module('app')
 
             LlibresService.create({
                 "titol": $scope.llibreTitol,
-                "isbn": $scope.llibreIsbn
+                "isbn": $scope.llibreIsbn,
+                "autors" : $scope.llibreAutor
             }).success(function(llibre) {
                 
                 $scope.llibreIsbn = null;
                 $scope.llibreTitol = null;
+                $scope.llibreAutor = null;
                 
             });
         }

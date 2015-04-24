@@ -1,6 +1,8 @@
 var mongoose = require("mongoose");
-mongoose.connect("mongodb://surrui:patata@ds031661.mongolab.com:31661/jwt", function() {
-    console.log('Connectat a mongodb');
+var config = require('./config');
+mongoose.connect('mongodb://' + config.userMongo +':' + config.passMongo + '@' + config.urlMongo,function(err) {
+          if(err) throw err;  
+          console.log("Connectat a mongolab");
 });
 
 module.exports = mongoose;

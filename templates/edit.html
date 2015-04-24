@@ -8,6 +8,10 @@
                 <input ng-model="editarTitol" class="form-control" placeholder="Titol">
                 <br> Isbn
                 <input ng-model="editarIsbn" class="form-control" placeholder="Isbn">
+                <br> Autor/s
+                <select multiple ng-model="editarAutor">
+                    <option value="{{autor._id}}" ng-repeat="autor in autors">{{autor.nom}}&nbsp;{{autor.cognoms}}</option>
+                </select>
                 <br>
                 <button class="btn btn-success btn-lg" ng-click="actualitzarLlibre()">Editar Llibre</button>
                 <button class="btn btn-primary btn-lg" ng-click="cancelarEdicio()">Cancelar</button>

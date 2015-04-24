@@ -6,6 +6,7 @@ angular.module('app')
             return $http.get("/api/users");
         };
         srv.login = function(username, password, noLogin) {
+
             return $http.post('/api/sessions', {
                 username: username,
                 password: password
@@ -21,5 +22,9 @@ angular.module('app')
         };
         this.create = function(user) {
             return $http.post("/api/users", user);
+        };
+        this.logOut = function() {
+            srv.auth = false;
+            $http.defaults.headers.common['x-auth'] ="";
         };
     });

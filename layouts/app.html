@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/bootstrap.slate.min.css" type="text/css" />
 </head>
 
-<body ng-app='app'>
+<body ng-app='app' ng-controller="ApplicationController">
     <div class='container'>
         <div class="navbar navbar-default">
             <div class="navbar-header">
@@ -24,13 +24,25 @@
                     </li>
                     <li><a href="/#/editarLlibre">Editar Llibre</a>
                     </li>
-                    <li><a href="/#/nouLlibre">Afegir Llibre</a>
+                    <li ng-if="currentUser"><a href="/#/nouLlibre">Afegir Llibre</a>
+                    </li>
+                    <li><a href="/#/llistaAutors">Veure Autors</a>
+                    </li>
+                    <li ng-if="currentUser"><a href="/#/nouAutor">Afegir Autor</a>
+                    </li>
+                    <li ng-if="currentUser"><a href="/#/editAutor">Editar Autor</a>
+                    </li>
+                </ul>
+                <ul ng-if="currentUser" class="nav navbar-nav navbar-right">
+                    <li><a>Connectat com {{currentUser.username}}</a>
+                    </li>
+                    <li><a ng-click="logout()" class="btn btn-danger btn-xs">Desconnectar</a>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/#/iniciarSessio">Iniciar Sessio</a>
+                    <li><a ng-if="!currentUser" href="/#/iniciarSessio">Iniciar Sessio</a>
                     </li>
-                    <li><a href="/#/usuariNou">Registrar Usuari</a>
+                    <li><a ng-if="!currentUser" href="/#/usuariNou">Registrar Usuari</a>
                     </li>
                 </ul>
             </div>

@@ -1,5 +1,10 @@
 angular.module('app')
-    .controller('EditBooks', function($scope, $location, LlibresService) {
+    .controller('EditBooks', function($scope, $location, LlibresService, AutorService) {
+       
+        AutorService.fetch()
+        .success(function(autors) {
+            $scope.autors = autors;
+        });
        
             if (LlibresService.llibreEditar === null) {
                 $location.path('/');
@@ -7,6 +12,7 @@ angular.module('app')
 
             $scope.editarTitol = LlibresService.llibreEditar.titol;
             $scope.editarIsbn = LlibresService.llibreEditar.isbn;
+            $scope.editarAutor = LlibresService.llibreEditar.autors;
 
             $scope.llibre_Editar = LlibresService.llibreEditar;
 }
@@ -25,7 +31,8 @@ angular.module('app')
 
             LlibresService.update($scope.llibre_Editar.isbn, {
                 "titol": $scope.editarTitol,
-                "isbn": $scope.editarIsbn
+                "isbn": $scope.editarIsbn,
+                "autors": $scope.editarAutor
             })
 
 

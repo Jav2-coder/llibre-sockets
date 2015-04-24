@@ -7,7 +7,8 @@
                 </div>
                 <div class="col-xs-8 col-sm-8 col-md-8">
                     <h4><strong>{{llibre.titol}}</strong></h4>
-                    <p>Isbn: {{llibre.isbn}}</p>
+                    <p ng-model="llibreAutor"><b>Autor/s</b> <div ng-repeat="autor in llibre.autors">·{{autor.nom}}&nbsp;{{autor.cognoms}}</div></p>
+                    <p><b>Isbn:</b> {{llibre.isbn}}</p>
                     <div>
                         <button class="btn btn-danger btn-lg list-group col-xs-3 col-sm-3 col-md-3" ng-click="borrarLlibre(llibre)">Esborrar</button>
                         <button class="btn btn-info btn-lg list-group col-xs-3 col-sm-3 col-md-3" ng-click="editarLlibre(llibre)">Editar</button>

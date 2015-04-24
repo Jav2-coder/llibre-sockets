@@ -4,21 +4,15 @@ var User = require("../../models/users");
 var router = require("express").Router();
 var jwt = require('jwt-simple');
 var bcrypt = require("bcrypt");
+var config = require("../../config");
 
-var secretKey = 'A0hu77QQhHhj3166pp078fqapAAAzx';
-
-router.get('/', function(req,res) {
-    //Si el token d'autenticació és correcte enviem 
-    // el nom de l'usuari per provar que funciona.
-    var token = req.headers['x-auth'];
-    if (token) {
-        var auth = jwt.decode(token,secretKey);
+router.get('/', function(req,res,next) {
+    if (!req.headers['x-auth']) return res.status(401).json({"missatge": "Error autenticació"});
+    var auth = jwt.decode(req.headers['x-auth'], config.secret);
         User.findOne({username:auth.username}, function(err, user) {
+            if (err) return next(err);
             res.status(200).json(user);
         });
-    } else {
-        res.status(401).json({"missatge": "bad token"});
-    }
 });
 
 router.post('/', function(req,res,next) {
