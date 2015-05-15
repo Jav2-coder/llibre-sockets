@@ -15,3 +15,10 @@ module.exports = function(http) {
     }
   };
 };
+
+/*},
+    eliminarLlibre: function(llibre,p) {
+      console.log('delete book event!');
+      io.emit('deleteBook', llibre);
+    }
+    */
