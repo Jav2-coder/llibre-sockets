@@ -51,7 +51,7 @@ angular.module('app')
             enabled: true,
             requireBase: false
         });
-    }).run(function($rootScope,UsersService) {
+    }).run(function($rootScope, UsersService) {
         /*
             Cada vegada que canviem de pàgina se dispara el
             event $routeChangeStart,

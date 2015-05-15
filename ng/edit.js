@@ -19,7 +19,6 @@ angular.module('app')
 
         //Cancelem l'acció PUT
         $scope.cancelarEdicio = function(llibre) {
-
             LlibresService.llibreEditar = null;
             
             $location.path('/');
@@ -33,7 +32,7 @@ angular.module('app')
                 "titol": $scope.editarTitol,
                 "isbn": $scope.editarIsbn,
                 "autors": $scope.editarAutor
-            })
+            });
 
 
             $location.path('/');
